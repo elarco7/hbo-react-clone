@@ -1,0 +1,13 @@
+@use 'reset';
+@use 'login';
+@use 'createUser';
+@use '../components/UI/Header/header';
+@use '../components/UI/SideNav/side-nav';
+@use '../components/UI/Featured-Media/feature-media';
+@use '../components/UI/ForYouList/forYouList';
+@use '../components/UI/JustAddedList/justAddedList';
+@use '../components/UI/PosterViewList/posterViewList';
+@use '../components/UI/CastInfo/castInfo';
+@use '../components/UI/UserAccount/userAccount';
+@use '../components/UI/SearchModal/searchModal';
+
