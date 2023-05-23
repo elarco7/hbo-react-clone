@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export const JustAddedList = () => {
@@ -11,7 +12,7 @@ export const JustAddedList = () => {
 
   const thumbnailLayout = (
     <div className="just-added-list__thumbnail">
-      <img
+      <Image
         src="https://m.media-amazon.com/images/M/MV5BMWUyZTg2YTEtYmY4ZS00MGRiLTk0YzctYmM4NzEwNjAwY2U2XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
         alt="seiya"
       />

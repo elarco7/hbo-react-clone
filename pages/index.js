@@ -11,7 +11,7 @@ export default function Home() {
         </div>
         <div className="login-user__form">
           <div className="login-user__user-box">
-            <img
+            <Image
               src="https://randomuser.me/api/portraits/women/57.jpg"
               alt="user pic"
               className="login-user__user-img"

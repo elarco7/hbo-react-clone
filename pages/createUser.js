@@ -10,7 +10,7 @@ export default function CreateUser() {
           <span className="create-user__title">Who Is Watching?</span>
         </div>
         <div className="create-user__form">
-          <img
+          <Image
             src="https://randomuser.me/api/portraits/women/57.jpg"
             alt="user pic"
             className="create-user__user-img"

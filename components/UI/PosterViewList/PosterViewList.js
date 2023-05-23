@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export const PosterViewList = () => {
@@ -11,7 +12,7 @@ export const PosterViewList = () => {
 
   const thumbnailLayout = (
     <div className="poster-view-list__thumbnail">
-      <img
+      <Image
         src="https://m.media-amazon.com/images/M/MV5BMWUyZTg2YTEtYmY4ZS00MGRiLTk0YzctYmM4NzEwNjAwY2U2XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
         alt="seiya"
       />

@@ -1,4 +1,6 @@
+import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 export const UserAccount = () => {
   const loopComp = (component, iter) => {
@@ -11,7 +13,7 @@ export const UserAccount = () => {
 
   const thumbnailLayout = (
     <div className="account__watch-video">
-      <img
+      <Image
         src="https://m.media-amazon.com/images/M/MV5BNDZlNzJiMzQtNzhjZi00MDMyLWFhZDUtNjc5NDhmMDdhYTAwXkEyXkFqcGdeQXVyMTA1OTEwNjE@._V1_FMjpg_UX1000_.jpg"
         alt=""
       />
@@ -38,18 +40,18 @@ export const UserAccount = () => {
       <div className="account__menu">
         <ul className="account__main">
           <li>
-            <a href="/" className="active">
+            <Link href="/" className="active">
               My List
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="side-nav__divider" />
         <ul className="account__main">
           <li>
-            <a href="/">Account</a>
+            <Link href="/">Account</Link>
           </li>
           <li>
-            <a href="/">Sign Out</a>
+            <Link href="/">Sign Out</Link>
           </li>
         </ul>
       </div>

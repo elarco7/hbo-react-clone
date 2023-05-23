@@ -1,6 +1,7 @@
 import React from "react";
 import { UserAccount } from "../UserAccount/UserAccount";
 import { SearchModal } from "../SearchModal/SearchModal";
+import Image from "next/image";
 
 export const Header = () => {
   return (
@@ -16,7 +17,7 @@ export const Header = () => {
         </div>
         <div className="top-header__logo"></div>
         <div className="top-header__account">
-          <img
+          <Image
             src="https://randomuser.me/api/portraits/women/57.jpg"
             alt="user image"
             className="top-header__user-img"
