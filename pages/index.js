@@ -15,8 +15,15 @@ export default function Home() {
               src="https://randomuser.me/api/portraits/women/57.jpg"
               alt="user pic"
               className="login-user__user-img"
-              width={125}
-              height={125}
+              style={{
+                width: "125px",
+                height: "125px",
+                borderRadius: "50%",
+                marginBottom: "1rem",
+                border: "3px solid rgb(132,0,255)",
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
             />
             <div className="login-user__user-name">Kelly</div>
           </div>
