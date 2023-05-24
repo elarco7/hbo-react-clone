@@ -22,16 +22,22 @@
         position: relative;
         margin-right: 10px;
         
-        img{
-            width: 450px;
-            height: 253px;
-            object-fit: fill;
-            // object-position: center;
-            object-position: center center;
-            // position: absolute;
-            // flex-shrink: 0;
-        }
+        // img{
+        //     width: 450px;
+        //     height: 253px;
+        //     object-fit: fill;
+        //     // object-position: center;
+        //     object-position: center center;
+        //     // position: absolute;
+        //     // flex-shrink: 0;
+        // }
         
+    }
+    &__thumbnail-ctr{
+        width: 450px;
+        height: 253px;
+        position: relative;
+
     }
     &__top-layer{
         background: rgb(94, 255, 245);

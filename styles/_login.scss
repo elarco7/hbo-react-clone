@@ -28,33 +28,35 @@
     }
     &__form{
         display: flex;
-        place-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
     }
     &__user-box{
-        display: flex;
-        flex-direction: column;
-        place-items: center;
         width: 125px;
         height: 125px;
         cursor: pointer;
         position: relative;
-        &:nth-child(1){
-            margin-right: 3rem;
-        }
+        margin: 0 45px;
+        
         .login-user__user-img{
             width: 100%;
             height: 100%;
-            // position: relative !important;
+            //position: relative !important;
             border-radius: 50%;
             margin-bottom: 1rem;
             border: 3px solid rgb(132,0,255) !important;
             object-fit: cover;
             object-position: center;
         }
+        
     }
+    
     
     &__user-name{
         color: white;
+        font-weight: 700;
     }
     &__buttons{
         margin-bottom: 2rem;

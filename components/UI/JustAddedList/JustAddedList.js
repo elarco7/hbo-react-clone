@@ -12,10 +12,14 @@ export const JustAddedList = () => {
 
   const thumbnailLayout = (
     <div className="just-added-list__thumbnail">
-      <Image
-        src="https://m.media-amazon.com/images/M/MV5BMWUyZTg2YTEtYmY4ZS00MGRiLTk0YzctYmM4NzEwNjAwY2U2XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
-        alt="seiya"
-      />
+      <div className="just-added-list__thumbnail-ctr">
+        <Image
+          src="https://m.media-amazon.com/images/M/MV5BMWUyZTg2YTEtYmY4ZS00MGRiLTk0YzctYmM4NzEwNjAwY2U2XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+          alt="seiya"
+          layout="fill"
+        />
+      </div>
+
       <div className="just-added-list__top-layer">
         <i className="fas fa-play" />
       </div>

@@ -16,6 +16,7 @@ export const UserAccount = () => {
       <Image
         src="https://m.media-amazon.com/images/M/MV5BNDZlNzJiMzQtNzhjZi00MDMyLWFhZDUtNjc5NDhmMDdhYTAwXkEyXkFqcGdeQXVyMTA1OTEwNjE@._V1_FMjpg_UX1000_.jpg"
         alt=""
+        layout="fill"
       />
       <div className="account__watch-overlay">
         <div className="account__watch-buttons">
@@ -30,6 +31,7 @@ export const UserAccount = () => {
     </div>
   );
   return (
+    // add account--active
     <div className="account ">
       <div className="account__details">
         <div className="account__title">My List</div>

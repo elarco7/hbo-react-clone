@@ -55,16 +55,22 @@
         position: relative;
         margin-right: 10px;
         opacity: 0;
-        img{
-            width: 240px;
-            height: 360px;
-            object-fit: fill;
-            // object-position: center;
-            object-position: center center;
-            // position: absolute;
-            // flex-shrink: 0;
-        }
+        // img{
+        //     width: 240px;
+        //     height: 360px;
+        //     object-fit: fill;
+        //     // object-position: center;
+        //     object-position: center center;
+        //     // position: absolute;
+        //     // flex-shrink: 0;
+        // }
         
+    }
+    &__thumbnail-ctr{
+        width: 240px;
+        height: 360px;
+        position: relative;
+
     }
     &__top-layer{
         background: rgb(94, 255, 245);

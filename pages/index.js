@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useStateContext } from "../components/HBOProvider";
 
 export default function Home() {
+  const state = useStateContext();
   return (
     <div>
       <div className="login-user">
@@ -17,8 +19,8 @@ export default function Home() {
               className="login-user__user-img"
               layout="fill"
             />
-            <div className="login-user__user-name">Kelly</div>
           </div>
+          <div className="login-user__user-name">Kelly</div>
         </div>
         <div className="login-user__buttons">
           <button className="login-user__adult">Add Adult</button>

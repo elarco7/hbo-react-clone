@@ -12,18 +12,22 @@ export const SearchModal = () => {
 
   const thumbnailLayout = (
     <div className="search-modal__thumbnail">
-      <Image
-        src="https://m.media-amazon.com/images/M/MV5BMWUyZTg2YTEtYmY4ZS00MGRiLTk0YzctYmM4NzEwNjAwY2U2XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
-        alt="seiya"
-      />
+      <div className="search-modal__thumbnail-ctr">
+        <Image
+          src="https://m.media-amazon.com/images/M/MV5BMWUyZTg2YTEtYmY4ZS00MGRiLTk0YzctYmM4NzEwNjAwY2U2XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+          alt="seiya"
+          layout="fill"
+        />
+      </div>
+
       <div className="search-modal__top-layer">
         <i className="fas fa-play" />
       </div>
     </div>
   );
   return (
-    <div>
-      <div className="search-modal ">
+    <>
+      <div className="search-modal">
         <div className="search-modal__input-group">
           <input
             type="text"
@@ -40,6 +44,6 @@ export const SearchModal = () => {
           {loopComp(thumbnailLayout, 10)}
         </div>
       </div>
-    </div>
+    </>
   );
 };

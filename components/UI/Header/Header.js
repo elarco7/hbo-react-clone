@@ -17,11 +17,15 @@ export const Header = () => {
         </div>
         <div className="top-header__logo"></div>
         <div className="top-header__account">
-          <Image
-            src="https://randomuser.me/api/portraits/women/57.jpg"
-            alt="user image"
-            className="top-header__user-img"
-          />
+          <div className="top-header__account-img">
+            <Image
+              src="https://randomuser.me/api/portraits/women/57.jpg"
+              alt="user image"
+              className="top-header__user-img"
+              layout="fill"
+            />
+          </div>
+
           <div className="top-header__user-name">Kelly</div>
         </div>
         <UserAccount />
