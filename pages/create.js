@@ -1,7 +1,9 @@
-import Head from "next/head";
 import Image from "next/image";
+import { useStateContext } from "../components/HBOProvider";
 
 export default function CreateUser() {
+  const state = useStateContext();
+  console.log(state);
   return (
     <div>
       <div className="create-user">
@@ -10,17 +12,23 @@ export default function CreateUser() {
           <span className="create-user__title">Who Is Watching?</span>
         </div>
         <div className="create-user__form">
-          <Image
-            src="https://randomuser.me/api/portraits/women/57.jpg"
-            alt="user pic"
-            className="create-user__user-img"
-          />
+          <div className="create-user__form-ctr">
+            <Image
+              src="https://randomuser.me/api/portraits/women/57.jpg"
+              alt="user pic"
+              className="create-user__user-img"
+              layout="fill"
+            />
+          </div>
+
           <div className="create-user__input-group">
             <label htmlFor="userName">Name</label>
             <input
               type="text"
               className="create-user__inputText"
               id="userName"
+              value={state.user}
+              onChange={state.instance.createUser}
             />
             <div className="create-user__colors">
               <div

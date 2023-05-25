@@ -7,8 +7,17 @@ export function useStateContext() {
 }
 
 export function HBOProvider({ children }) {
+  const [user, setUser] = useState("");
+
+  const createUserAction = (e) => {
+    setUser(e.target.value);
+    // console.log(user, "provider");
+  };
+  const instance = {
+    createUser: createUserAction,
+  };
   return (
-    <StateContext.Provider value={{ test: "test" }}>
+    <StateContext.Provider value={{ user, instance }}>
       {children}
     </StateContext.Provider>
   );
