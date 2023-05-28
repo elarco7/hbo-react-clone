@@ -87,7 +87,7 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9648);
 /* harmony import */ var _utilities_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6886);
 /* harmony import */ var _Models_MovieModel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2659);
-/* harmony import */ var _utilities_ShuffleArray__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9046);
+/* harmony import */ var _utilities_shuffleData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4038);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([axios__WEBPACK_IMPORTED_MODULE_3__]);
 axios__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
@@ -108,7 +108,7 @@ const MediaRow = (props)=>{
             movies = response.data.results.map((movie)=>{
                 return new _Models_MovieModel__WEBPACK_IMPORTED_MODULE_5__/* .MovieModel */ .Y(movie);
             });
-            setMovies((0,_utilities_ShuffleArray__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(movies));
+            setMovies((0,_utilities_shuffleData__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(movies));
         }).catch(function(error) {
             // handle error
             console.log(error);
@@ -179,27 +179,6 @@ __webpack_async_result__();
 
 /***/ }),
 
-/***/ 9046:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (/* binding */ shuffleArray)
-/* harmony export */ });
-function shuffleArray(array) {
-    console.log(array, "array");
-    for(let i = array.length - 1; i > 0; i--){
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [
-            array[j],
-            array[i]
-        ];
-    }
-    return array;
-}
-
-
-/***/ }),
-
 /***/ 6886:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -217,6 +196,27 @@ const _ = {
     ADVENTURE_ID: 12
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_);
+
+
+/***/ }),
+
+/***/ 4038:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (/* binding */ shuffleData)
+/* harmony export */ });
+function shuffleData(array) {
+    console.log(array, "array");
+    for(let i = array.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [
+            array[j],
+            array[i]
+        ];
+    }
+    return array;
+}
 
 
 /***/ })

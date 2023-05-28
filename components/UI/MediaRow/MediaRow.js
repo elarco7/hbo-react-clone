@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import _ from "../../../utilities/constants";
 import { MovieModel } from "../../Models/MovieModel";
-import shuffleArray from "../../../utilities/ShuffleArray";
+import shuffleData from "../../../utilities/shuffleData";
 export const MediaRow = (props) => {
   const [loadingData, setLoadingData] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -18,7 +18,7 @@ export const MediaRow = (props) => {
         movies = response.data.results.map((movie) => {
           return new MovieModel(movie);
         });
-        setMovies(movies);
+        setMovies(shuffleData(movies));
       })
       .catch(function (error) {
         // handle error

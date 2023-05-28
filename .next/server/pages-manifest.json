@@ -1,12 +1,12 @@
 {
-  "/_app": "pages/_app.js",
   "/api/hello": "pages/api/hello.js",
-  "/_error": "pages/_error.js",
-  "/create": "pages/create.html",
-  "/home": "pages/home.html",
+  "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/login": "pages/login.html",
+  "/_error": "pages/_error.js",
+  "/home": "pages/home.html",
   "/": "pages/index.html",
+  "/login": "pages/login.html",
   "/movie": "pages/movie.html",
+  "/create": "pages/create.html",
   "/404": "pages/404.html"
 }
