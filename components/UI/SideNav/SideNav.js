@@ -1,10 +1,16 @@
 import Link from "next/link";
 import React from "react";
+import { useStateContext } from "../../HBOProvider";
 
 export const SideNav = () => {
+  const state = useStateContext();
+
   return (
-    <div className="side-nav ">
-      <div className="side-nav__close-btn">
+    <div className={`side-nav  ${state.isSideNavOpen && "side-nav--active"}`}>
+      <div
+        className="side-nav__close-btn"
+        onClick={state.hboProvider.toggleSideNav}
+      >
         <i className="fas fa-times"></i>
       </div>
       <ul className="side-nav__main">

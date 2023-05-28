@@ -1,8 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import { useStateContext } from "../../HBOProvider";
 
 export const UserAccount = () => {
+  const state = useStateContext();
+
   const loopComp = (component, iter) => {
     const thumbnails = [];
     for (let i = 0; i < iter; i++) {
@@ -32,7 +35,7 @@ export const UserAccount = () => {
   );
   return (
     // add account--active
-    <div className="account ">
+    <div className={`account ${state.isAccountOpen && "account--active"}`}>
       <div className="account__details">
         <div className="account__title">My List</div>
         <div className="account__watch-list">

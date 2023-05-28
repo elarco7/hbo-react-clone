@@ -1,7 +1,10 @@
 import Image from "next/image";
 import React from "react";
+import { useStateContext } from "../../HBOProvider";
 
 export const SearchModal = () => {
+  const state = useStateContext();
+
   const loopComp = (component, iter) => {
     const thumbnails = [];
     for (let i = 0; i < iter; i++) {
@@ -27,19 +30,27 @@ export const SearchModal = () => {
   );
   return (
     <>
-      <div className="search-modal">
+      <div
+        className={`search-modal ${
+          state.isSearchOpen && "search-modal--active"
+        } `}
+      >
         <div className="search-modal__input-group">
           <input
             type="text"
             placeholder="Search for a title"
-            value=""
             className="search-modal__input"
           />
-          <div className="search-modal__close-btn">
+          <div
+            className="search-modal__close-btn"
+            onClick={state.hboProvider.toggleSearch}
+          >
             <i className="fas fa-times" />
           </div>
         </div>
+
         <h3 className="search-modal__title">Popular Searches</h3>
+
         <div className="search-modal__thumbnails">
           {loopComp(thumbnailLayout, 10)}
         </div>

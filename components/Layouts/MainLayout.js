@@ -1,8 +1,23 @@
 import React from "react";
 import { Header } from "../UI/Header/Header";
 import { SideNav } from "../UI/SideNav/SideNav";
+import { useStateContext } from "../HBOProvider";
 
 export default function MainLayout(props) {
+  const state = useStateContext();
+
+  const closeModals = () => {
+    let isSideNavOpen = state.isSideNavOpen;
+    let isAccountOpen = state.isAccountOpen;
+
+    if (isAccountOpen) {
+      state.hboProvider.toggleAccount();
+    }
+    if (isSideNavOpen) {
+      state.hboProvider.toggleSideNav();
+    }
+  };
+
   return (
     <div
       style={{
@@ -14,7 +29,9 @@ export default function MainLayout(props) {
     >
       <SideNav />
       <Header />
-      <section className="content-container">{props.children}</section>
+      <section className="content-container" onClick={closeModals}>
+        {props.children}
+      </section>
     </div>
   );
 }

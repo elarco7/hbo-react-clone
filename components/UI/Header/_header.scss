@@ -11,6 +11,9 @@
     width: 100%;
     z-index: 10;
     transition: background .3s ease-in-out;
+    &__menu-open{
+        background-color: black;
+    }
     &:hover{
         background: rgba(0,0,0,1);
     }
@@ -21,17 +24,29 @@
         background-image: url(/img/logo.svg);
         transform: scale(.9);
     }
+   
     &__left-side{
         display: flex;
         div:nth-child(1){
             margin-right: 40px;
         }
     }
+    &__menu-btn:hover{
+        cursor: pointer;
+
+    }
+    &__search-btn:hover{
+        cursor: pointer;
+
+    }
     &__account{
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 20px;
+        &:hover{
+            cursor: pointer;
+        }
     }
     &__account-img{
         width: 30px;

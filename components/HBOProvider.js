@@ -8,16 +8,34 @@ export function useStateContext() {
 
 export function HBOProvider({ children }) {
   const [user, setUser] = useState("");
+  const [isSideNavOpen, setSideNav] = useState(false);
+  const [isAccountOpen, setAccount] = useState(false);
+  const [isSearchOpen, setSearch] = useState(false);
 
   const createUserAction = (e) => {
     setUser(e.target.value);
     // console.log(user, "provider");
   };
-  const instance = {
+  const setSideNavStatus = () => {
+    setSideNav(!isSideNavOpen);
+  };
+  const setAccountStatus = () => {
+    setAccount(!isAccountOpen);
+  };
+  const setSearchStatus = () => {
+    setSearch(!isSearchOpen);
+  };
+
+  const hboProvider = {
     createUser: createUserAction,
+    toggleSideNav: setSideNavStatus,
+    toggleAccount: setAccountStatus,
+    toggleSearch: setSearchStatus,
   };
   return (
-    <StateContext.Provider value={{ user, instance }}>
+    <StateContext.Provider
+      value={{ user, isSideNavOpen, isAccountOpen, isSearchOpen, hboProvider }}
+    >
       {children}
     </StateContext.Provider>
   );

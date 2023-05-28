@@ -1,9 +1,34 @@
 import Image from "next/image";
 import { useStateContext } from "../components/HBOProvider";
+import ls from "local-storage";
+import { v4 } from "uuid";
+import { useRouter } from "next/router";
 
 export default function CreateUser() {
   const state = useStateContext();
-  console.log(state);
+  const router = useRouter();
+
+  const storeUser = () => {
+    let users = [];
+    // new user
+    let user = {
+      id: v4(),
+      user: state.user,
+      myListID: [],
+    };
+    // check if local storage has users
+    if (ls("users") < 1) {
+      users.push(user);
+      ls("users", users);
+    } else {
+      users = ls("users");
+      users.push(user);
+      ls("users", users);
+    }
+    router.push("/login");
+  };
+
+  // console.log(state);
   return (
     <div>
       <div className="create-user">
@@ -28,7 +53,7 @@ export default function CreateUser() {
               className="create-user__inputText"
               id="userName"
               value={state.user}
-              onChange={state.instance.createUser}
+              onChange={state.hboProvider.createUser}
             />
             <div className="create-user__colors">
               <div
@@ -81,7 +106,9 @@ export default function CreateUser() {
         </div>
         <div className="create-user__buttons">
           <button className="create-user__cancel">Cancel</button>
-          <button className="create-user__save">Save</button>
+          <button className="create-user__save" onClick={storeUser}>
+            Save
+          </button>
         </div>
       </div>
     </div>
