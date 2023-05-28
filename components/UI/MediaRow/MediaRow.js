@@ -40,7 +40,7 @@ export const MediaRow = (props) => {
   const ThumbnailLayout = () => {
     return movies.map((movie) => {
       return (
-        <div className="media-row__thumbnail ">
+        <div className="media-row__thumbnail " key={movie.id}>
           <div className={`media-row__thumbnail-ctr ${props.dimensions} `}>
             <Image
               src={`${_.BASE_IMG_URL}${movie.img_url}`}
