@@ -18,7 +18,7 @@ export const MediaRow = (props) => {
         movies = response.data.results.map((movie) => {
           return new MovieModel(movie);
         });
-        setMovies(shuffleArray(movies));
+        setMovies(movies);
       })
       .catch(function (error) {
         // handle error
