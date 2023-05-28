@@ -1,0 +1,12 @@
+{
+  "/_app": "pages/_app.js",
+  "/api/hello": "pages/api/hello.js",
+  "/_error": "pages/_error.js",
+  "/create": "pages/create.html",
+  "/home": "pages/home.html",
+  "/_document": "pages/_document.js",
+  "/login": "pages/login.html",
+  "/": "pages/index.html",
+  "/movie": "pages/movie.html",
+  "/404": "pages/404.html"
+}
