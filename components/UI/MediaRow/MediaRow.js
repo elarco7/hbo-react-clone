@@ -5,8 +5,7 @@ import axios from "axios";
 import _ from "../../../utilities/constants";
 import { MovieModel } from "../../Models/MovieModel";
 import shuffleData from "../../../utilities/shuffleData";
-import LazyLoad from "react-lazyload";
-import { Placeholder } from "../ImagePlaceholder/Placeholder";
+
 export const MediaRow = (props) => {
   const [loadingData, setLoadingData] = useState(true);
   const [movies, setMovies] = useState([]);

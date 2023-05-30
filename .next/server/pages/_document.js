@@ -40,7 +40,8 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1__["default"] {
                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(next_document__WEBPACK_IMPORTED_MODULE_1__.Head, {
                     children: [
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("link", {
-                            rel: "preconnect",
+                            rel: "preload",
+                            as: "style",
                             href: "https://fonts.googleapis.com"
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("link", {
@@ -49,11 +50,12 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1__["default"] {
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("link", {
                             href: "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Noto+Sans:ital,wght@0,100;0,200;0,900;1,100;1,200&display=swap",
-                            rel: "preload"
+                            rel: "preload",
+                            as: "style"
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("link", {
-                            rel: "preload",
-                            href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+                            rel: "stylesheet",
+                            href: "/fontawesome/css/all.min.css"
                         })
                     ]
                 }),
