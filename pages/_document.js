@@ -27,10 +27,10 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Noto+Sans:ital,wght@0,100;0,200;0,900;1,100;1,200&display=swap"
-            rel="stylesheet"
+            rel="preload"
           />
           <link
-            rel="stylesheet"
+            rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           />
         </Head>

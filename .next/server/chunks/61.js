@@ -71,6 +71,56 @@ class MovieModel {
 
 /***/ }),
 
+/***/ 6006:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "V": () => (/* binding */ Placeholder)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const Placeholder = (props)=>{
+    const LoadingLayout = ()=>{
+        return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+            className: `media-row__thumbnail-ctr ${props.type} `,
+            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                className: "media-row__thumbnail-skeleton",
+                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                    className: "media-row__thumbnail-skeleton-img"
+                })
+            })
+        });
+    };
+    const loopComp = (component)=>{
+        let components = [];
+        for(let i = 0; i < props.num; i++){
+            components.push(component);
+        }
+        // console.log(components.length, "num of componenets");
+        return components;
+    };
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: "media-row",
+        children: [
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
+                className: "media-row__title",
+                children: props.title
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                className: "media-row__thumbnails",
+                children: loopComp(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(LoadingLayout, {}))
+            })
+        ]
+    });
+};
+
+
+/***/ }),
+
 /***/ 9337:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -86,10 +136,15 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9648);
 /* harmony import */ var _utilities_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6886);
-/* harmony import */ var _Models_MovieModel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2659);
-/* harmony import */ var _utilities_shuffleData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4038);
+/* harmony import */ var _Models_MovieModel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(2659);
+/* harmony import */ var _utilities_shuffleData__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(4038);
+/* harmony import */ var react_lazyload__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9346);
+/* harmony import */ var react_lazyload__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_lazyload__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _ImagePlaceholder_Placeholder__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6006);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([axios__WEBPACK_IMPORTED_MODULE_3__]);
 axios__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
 
 
 
@@ -106,9 +161,9 @@ const MediaRow = (props)=>{
         axios__WEBPACK_IMPORTED_MODULE_3__["default"].get(props.db.url).then(function(response) {
             // handle success
             movies = response.data.results.map((movie)=>{
-                return new _Models_MovieModel__WEBPACK_IMPORTED_MODULE_5__/* .MovieModel */ .Y(movie);
+                return new _Models_MovieModel__WEBPACK_IMPORTED_MODULE_7__/* .MovieModel */ .Y(movie);
             });
-            setMovies((0,_utilities_shuffleData__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(movies));
+            setMovies((0,_utilities_shuffleData__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z)(movies));
         }).catch(function(error) {
             // handle error
             console.log(error);
@@ -116,6 +171,18 @@ const MediaRow = (props)=>{
         // always executed
         });
     }, []);
+    const imgWidth = (imgType)=>{
+        switch(imgType){
+            case "large-v":
+                return "400";
+            case "large-h":
+                return "500";
+            case "small-v":
+                return "185";
+            case "small-h":
+                return "342";
+        }
+    };
     const loopComp = (component, iter)=>{
         const thumbnails = [];
         for(let i = 0; i < iter; i++){
@@ -129,9 +196,9 @@ const MediaRow = (props)=>{
                 className: "media-row__thumbnail ",
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        className: `media-row__thumbnail-ctr ${props.dimensions} `,
+                        className: `media-row__thumbnail-ctr ${props.type} `,
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
-                            src: `${_utilities_constants__WEBPACK_IMPORTED_MODULE_4__/* ["default"].BASE_IMG_URL */ .Z.BASE_IMG_URL}${movie.img_url}`,
+                            src: `${_utilities_constants__WEBPACK_IMPORTED_MODULE_4__/* ["default"].BASE_IMG_URL */ .Z.BASE_IMG_URL}${imgWidth(props.type)}${movie.img_url}`,
                             alt: "seiya",
                             layout: "fill"
                         })
@@ -148,7 +215,7 @@ const MediaRow = (props)=>{
     };
     const LoadingLayout = ()=>{
         return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-            className: `media-row__thumbnail-ctr ${props.dimensions} `,
+            className: `media-row__thumbnail-ctr ${props.type} `,
             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                 className: "media-row__thumbnail-skeleton",
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
@@ -157,20 +224,18 @@ const MediaRow = (props)=>{
             })
         });
     };
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-            className: "media-row",
-            children: [
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
-                    className: "media-row__title",
-                    children: props.title
-                }),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                    className: "media-row__thumbnails",
-                    children: loadingData ? loopComp(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(LoadingLayout, {}), 10) : loopComp(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(ThumbnailLayout, {}), movies.length)
-                })
-            ]
-        })
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: "media-row",
+        children: [
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
+                className: "media-row__title",
+                children: props.title
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                className: "media-row__thumbnails",
+                children: loadingData ? loopComp(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(LoadingLayout, {}), movies.length) : loopComp(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(ThumbnailLayout, {}), movies.length)
+            })
+        ]
     });
 };
 
@@ -187,7 +252,7 @@ __webpack_async_result__();
 /* harmony export */ });
 const _ = {
     DISCOVER_MOVIE_URL: "https://api.themoviedb.org/3/discover/movie?",
-    BASE_IMG_URL: "https://image.tmdb.org/t/p/w500",
+    BASE_IMG_URL: "https://image.tmdb.org/t/p/w",
     POPULAR_TV_URL: "https://api.themoviedb.org/3/tv/popular?language=en-US&page=1",
     API_KEY: "b6e1a0113c40018a4403661002ab1fde",
     ACTION_ID: 28,

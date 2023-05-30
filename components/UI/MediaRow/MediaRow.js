@@ -5,6 +5,8 @@ import axios from "axios";
 import _ from "../../../utilities/constants";
 import { MovieModel } from "../../Models/MovieModel";
 import shuffleData from "../../../utilities/shuffleData";
+import LazyLoad from "react-lazyload";
+import { Placeholder } from "../ImagePlaceholder/Placeholder";
 export const MediaRow = (props) => {
   const [loadingData, setLoadingData] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -29,6 +31,19 @@ export const MediaRow = (props) => {
       });
   }, []);
 
+  const imgWidth = (imgType) => {
+    switch (imgType) {
+      case "large-v":
+        return "400";
+      case "large-h":
+        return "500";
+      case "small-v":
+        return "185";
+      case "small-h":
+        return "342";
+    }
+  };
+
   const loopComp = (component, iter) => {
     const thumbnails = [];
     for (let i = 0; i < iter; i++) {
@@ -41,9 +56,9 @@ export const MediaRow = (props) => {
     return movies.map((movie) => {
       return (
         <div className="media-row__thumbnail " key={movie.id}>
-          <div className={`media-row__thumbnail-ctr ${props.dimensions} `}>
+          <div className={`media-row__thumbnail-ctr ${props.type} `}>
             <Image
-              src={`${_.BASE_IMG_URL}${movie.img_url}`}
+              src={`${_.BASE_IMG_URL}${imgWidth(props.type)}${movie.img_url}`}
               alt="seiya"
               layout="fill"
             />
@@ -58,7 +73,7 @@ export const MediaRow = (props) => {
   };
   const LoadingLayout = () => {
     return (
-      <div className={`media-row__thumbnail-ctr ${props.dimensions} `}>
+      <div className={`media-row__thumbnail-ctr ${props.type} `}>
         <div className="media-row__thumbnail-skeleton">
           <div className="media-row__thumbnail-skeleton-img"></div>
         </div>
@@ -66,14 +81,12 @@ export const MediaRow = (props) => {
     );
   };
   return (
-    <div>
-      <div className="media-row">
-        <h3 className="media-row__title">{props.title}</h3>
-        <div className="media-row__thumbnails">
-          {loadingData
-            ? loopComp(<LoadingLayout />, 10)
-            : loopComp(<ThumbnailLayout />, movies.length)}
-        </div>
+    <div className="media-row">
+      <h3 className="media-row__title">{props.title}</h3>
+      <div className="media-row__thumbnails">
+        {loadingData
+          ? loopComp(<LoadingLayout />, movies.length)
+          : loopComp(<ThumbnailLayout />, movies.length)}
       </div>
     </div>
   );
