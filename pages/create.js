@@ -7,13 +7,14 @@ import { useRouter } from "next/router";
 export default function CreateUser() {
   const state = useStateContext();
   const router = useRouter();
-
+  let myId = v4();
   const storeUser = () => {
     let users = [];
+
     // new user
     let user = {
-      id: v4(),
-      user: state.user,
+      id: myId,
+      name: state.user,
       myListID: [],
     };
     // check if local storage has users

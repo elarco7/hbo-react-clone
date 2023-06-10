@@ -1,6 +1,7 @@
 import React from "react";
 
 export const Placeholder = (props) => {
+  console.log("Placeholder rendering");
   const LoadingLayout = () => {
     return (
       <div className={`media-row__thumbnail-ctr ${props.type} `}>
@@ -11,19 +12,20 @@ export const Placeholder = (props) => {
     );
   };
 
-  const loopComp = (component) => {
-    let components = [];
+  const generatePlaceholder = (Component) => {
+    const thumbnails = [];
     for (let i = 0; i < props.num; i++) {
-      components.push(component);
+      thumbnails.push(<Component key={i} />);
     }
-    // console.log(components.length, "num of componenets");
-    return components;
+    return thumbnails;
   };
 
   return (
     <div className="media-row">
       <h3 className="media-row__title">{props.title}</h3>
-      <div className="media-row__thumbnails">{loopComp(<LoadingLayout />)}</div>
+      <div className="media-row__thumbnails">
+        {generatePlaceholder(LoadingLayout)}
+      </div>
     </div>
   );
 };

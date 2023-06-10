@@ -25,7 +25,8 @@ export default function Login() {
 
   const selectUser = (user) => {
     ls("activeUID", user.id);
-    router.push({ pathname: "/", query: { userName: user.user } });
+    state.hboProvider.storeLoginInfo(user);
+    router.push({ pathname: "/", query: { userName: user.name } });
   };
 
   const showUsers = () => {
@@ -44,7 +45,7 @@ export default function Login() {
                 className="login-user__user-img"
               />
             </div>
-            <div className="login-user__user-name">{user.user}</div>
+            <div className="login-user__user-name">{user.name}</div>
           </div>
         );
       });

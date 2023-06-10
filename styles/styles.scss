@@ -11,4 +11,12 @@
 @use '../components/UI/UserAccount/userAccount';
 @use '../components/UI/SearchModal/searchModal';
 @use '../components/UI/MediaRow/mediaRow';
+@use '../components/UI/GenreNav/genre-nav';
+
+// body{
+//     background-color: black;
+// }
+.hide-comp{
+    display: none;
+}
 

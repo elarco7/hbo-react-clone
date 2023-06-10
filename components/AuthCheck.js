@@ -18,9 +18,9 @@ export const AuthCheck = (component) => {
     } else {
       setUsers(storedUsers);
       setActiveUID(activeUID);
-      console.log(storedUsers, "stored Users");
+      // console.log(storedUsers, "stored Users");
     }
-  }, []);
+  }, [ls("activeUID")]);
 
   return users.length >= 1 && activeUID !== null ? (
     component

@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { UserAccount } from "../UserAccount/UserAccount";
 import { SearchModal } from "../SearchModal/SearchModal";
 import Image from "next/image";
 import { useStateContext } from "../../HBOProvider";
+import Link from "next/link";
+import ls from "local-storage";
 
 export const Header = () => {
   const state = useStateContext();
+  const [loggedInUser, setLoggedInUser] = useState(state.loggedUserInfo.name);
+  const [isUserScrolling, setIsUserScrolling] = useState(state.isUserScrolling);
+
+  useEffect(() => {
+    setLoggedInUser(state.loggedUserInfo.name);
+  }, [state.loggedUserInfo]);
+
+  useEffect(() => {
+    setIsUserScrolling(state.isUserScrolling);
+  }, [state.isUserScrolling]);
 
   const closeModal = () => {
     let isSideNavOpen = state.isSideNavOpen;
     let isAccountOpen = state.isAccountOpen;
-
     if (isAccountOpen) {
       state.hboProvider.toggleAccount();
     }
@@ -23,7 +34,7 @@ export const Header = () => {
     <>
       <header
         className={`top-header ${
-          (state.isSideNavOpen || state.isAccountOpen) &&
+          (state.isSideNavOpen || state.isAccountOpen || isUserScrolling) &&
           "top-header__menu-open"
         }`}
         onClick={closeModal}
@@ -42,7 +53,9 @@ export const Header = () => {
             <i className="fas fa-search"></i>
           </div>
         </div>
-        <div className="top-header__logo"></div>
+        <Link href="/">
+          <div className="top-header__logo"></div>
+        </Link>
         <div
           className="top-header__account"
           onClick={state.hboProvider.toggleAccount}
@@ -56,10 +69,13 @@ export const Header = () => {
             />
           </div>
 
-          <div className="top-header__user-name">Kelly</div>
+          <div className="top-header__user-name">
+            {loggedInUser ? loggedInUser : ""}
+          </div>
         </div>
-        <UserAccount />
       </header>
+      <UserAccount />
+
       <SearchModal />
     </>
   );
