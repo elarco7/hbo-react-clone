@@ -21,22 +21,22 @@ export default function MediaTypePage(props) {
     return props.genresData.map((data) => {
       let thumbType = randomData(state.hboProvider.thumbTypes);
       return (
-        // <LazyLoad
-        //   offset={-200}
-        //   placeholder={
-        //     <Placeholder title={data.name} type={thumbType} num={7} />
-        //   }
-        //   key={data.id}
-        // >
-        <MediaRow
-          title={data.name}
-          type={thumbType}
-          mediaType={props.query.mediaType}
-          db={{
-            url: `${_.DISCOVER_MEDIATYPE_URL}${props.query.mediaType}?with_genres=${data.id}&primary_release_year=2021&api_key=${_.API_KEY}`,
-          }}
-        />
-        // </LazyLoad>
+        <LazyLoad
+          offset={-200}
+          placeholder={
+            <Placeholder title={data.name} type={thumbType} num={7} />
+          }
+          key={data.id}
+        >
+          <MediaRow
+            title={data.name}
+            type={thumbType}
+            mediaType={props.query.mediaType}
+            db={{
+              url: `${_.DISCOVER_MEDIATYPE_URL}${props.query.mediaType}?with_genres=${data.id}&primary_release_year=2021&api_key=${_.API_KEY}`,
+            }}
+          />
+        </LazyLoad>
       );
     });
   };
