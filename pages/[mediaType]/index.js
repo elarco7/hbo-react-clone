@@ -15,10 +15,11 @@ import shuffleData from "../../utilities/shuffleData";
 
 export default function MediaTypePage(props) {
   const state = useStateContext();
+  console.log(props, "GENRES DATA");
 
   const ShowRandomMedia = () => {
     return props.genresData.map((data) => {
-      let thumbType = randomData(state.hboProvider.thumbTypes);
+      let thumbType = "small-h";
       return (
         <LazyLoad
           offset={-200}
@@ -32,7 +33,11 @@ export default function MediaTypePage(props) {
             type={thumbType}
             mediaType={props.query.mediaType}
             db={{
-              url: `${_.DISCOVER_MEDIATYPE_URL}${props.query.mediaType}?with_genres=${data.id}&primary_release_year=2021&api_key=${_.API_KEY}`,
+              url: `${_.DISCOVER_MEDIATYPE_URL}${
+                props.query.mediaType
+              }?with_genres=${28}&primary_release_year=2021&api_key=${
+                _.API_KEY
+              }`,
             }}
           />
         </LazyLoad>
@@ -60,7 +65,7 @@ export default function MediaTypePage(props) {
         mediaType={props.query.mediaType}
         genresData={props.genresData}
       />
-      <ShowRandomMedia />
+      {ShowRandomMedia()}
     </MainLayout>
   );
 }
